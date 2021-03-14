@@ -10,7 +10,7 @@
     "test:watch": "jest --watch --passWithNoTests",
     "test:coverage": "jest --coverage --passWithNoTests",
     "gql-codegen": "graphql-codegen --config codegen.yml",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@apollo/client": "^3.3.11",
