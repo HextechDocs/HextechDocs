@@ -24,16 +24,17 @@ const Container = ({ theme }) => {
   return (
     <StyledContainer>
       <div className="container">mem</div>
-      <div
+      <button
         className="theme"
         onClick={() => {
           themeSwap();
         }}
+        type="button"
       >
         <span className="material-icons">
           {theme === "dark" ? "dark_mode" : "light_mode"}
         </span>
-      </div>
+      </button>
     </StyledContainer>
   );
 };
