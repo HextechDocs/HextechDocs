@@ -31,7 +31,7 @@ pipeline {
     stage('Build') {
       steps {
         nodejs('nodejs LTS 14.16.0') {
-          sh 'next build'
+          sh 'yarn build'
         }
 
       }
