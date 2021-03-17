@@ -1,38 +1,48 @@
 pipeline {
-  agent {
-    docker {
-      image 'node'
-    }
-
-  }
+  agent any
   stages {
     stage('Install Dependencies') {
       steps {
-        sh 'npm i -g yarn && yarn'
+        nodejs('nodejs LTS 14.16.0') {
+          sh 'npm i -g yarn && yarn'
+        }
+
       }
     }
 
     stage('Lint') {
       steps {
-        sh 'yarn lint'
+        nodejs('nodejs LTS 14.16.0') {
+          sh 'yarn lint'
+        }
+
       }
     }
 
     stage('Test') {
       steps {
-        sh 'yarn test'
+        nodejs('nodejs LTS 14.16.0') {
+          sh 'yarn test'
+        }
+
       }
     }
 
     stage('Build') {
       steps {
-        sh 'next build'
+        nodejs('nodejs LTS 14.16.0') {
+          sh 'next build'
+        }
+
       }
     }
 
     stage('Archive Artifacts') {
       steps {
-        archiveArtifacts '*'
+        nodejs('nodejs LTS 14.16.0') {
+          archiveArtifacts '*'
+        }
+
       }
     }
 
