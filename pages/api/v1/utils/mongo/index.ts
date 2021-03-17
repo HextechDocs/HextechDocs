@@ -10,9 +10,11 @@ const DATABASE: string = process.env.MONGO_DB || "hextechdocs";
 const MONGO_CONNECTION_URL =
   MONGO || `${PROTOCOL}://${URL}:${PORT}/${DATABASE}`;
 
-await mongo.connect(MONGO_CONNECTION_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true,
-});
+mongo
+  .connect(MONGO_CONNECTION_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  })
+  .catch(console.error);
